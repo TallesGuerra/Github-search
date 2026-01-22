@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         getAllReposByUserName()
     }
 
-    // Metodo responsavel por realizar o setup da view e recuperar os Ids do layout
-    fun setupView() {
+ // Metodo responsavel por realizar o setup da view e recuperar os Ids do layout
+    fun setupView() { 
         //@TODO 1 - Recuperar os Id's da tela para a Activity com o findViewById
     }
 
