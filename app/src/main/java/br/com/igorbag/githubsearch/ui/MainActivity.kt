@@ -111,17 +111,13 @@ class MainActivity : AppCompatActivity() {
             @TODO 7 - Implementar a configuracao do Adapter , construir o adapter e instancia-lo
             passando a listagem dos repositorios
          */
-        val adapter = RepositoryAdapter(list,
-                    onItemClick = { repo ->
-                        openBrowser(repo.htmlUrl)
-                    },
-                    onShareClick = { repo ->
-                        shareRepositoryLink(repo.htmlUrl)
-                    }
-                )
+        val adapter = RepositoryAdapter(list).apply{
+            carItemLister = {repo -> openBrowser(repo.htmmlUrl)}
 
-                listaRepositories.layoutManager = LinearLayoutManager(this)
-                listaRepositories.adapter = adapter
+            btnShareLister = { repo -> shareRepositoryLink(repo.htmlUrl)}
+        }
+            listaRepositories.layoutManager = LinearLayoutManager(this)
+            listaRepositories.adapter = adapter
     }
 
 
