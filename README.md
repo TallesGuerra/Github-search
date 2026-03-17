@@ -5,17 +5,13 @@
 ![Retrofit](https://img.shields.io/badge/Retrofit-REST%20API-48B983?style=for-the-badge)
 ![Material3](https://img.shields.io/badge/Material%203-Design-6200EE?style=for-the-badge)
 
-**Android app that fetches and displays a user's public GitHub repositories via the GitHub REST API.**
+Android app that fetches and displays public repositories from any GitHub user via the GitHub REST API, with local persistence of the last searched username.
 
 ---
 
-
-
 ## 📸 Screenshot
 
-![image](https://user-images.githubusercontent.com/5827265/188474294-4472bcc0-24ee-4ccd-80a8-7cee0372e7fa.png)
-
-
+<!-- Adiciona aqui um screenshot do teu app -->
 
 ---
 
@@ -25,43 +21,30 @@
 - ✅ List all public repositories from the searched user
 - ✅ Local persistence of the last searched username
 - ✅ Ability to reset the saved username
-- ✅ Clean and responsive UI with Material Design
 - ✅ Error handling for invalid usernames or network failures
-
----
-
-## 🌐 API
-
-This project consumes the GitHub public REST API:
-
-```
-https://api.github.com/users/{username}/repos
-```
-
-No authentication required for public repositories.
+- ✅ Clean UI with Material Design 3
 
 ---
 
 ## 🏗️ Architecture
-
 ```
 com.example.githubsearch/
 │
-├── 📱 MainActivity.kt                  # Main entry point
+├── 📱 MainActivity.kt
 │
-├── 🧩 ui/                              # UI layer
-│   ├── UserInputActivity.kt           # Username input screen
-│   └── RepositoryListActivity.kt      # Repository list screen
+├── 🧩 ui/
+│   ├── UserInputActivity.kt
+│   └── RepositoryListActivity.kt
 │
-├── 🌐 api/                             # Network layer
-│   ├── GithubService.kt               # Retrofit API interface
-│   └── RetrofitClient.kt              # Retrofit instance setup
+├── 🌐 api/
+│   ├── GithubService.kt
+│   └── RetrofitClient.kt
 │
-├── 📊 model/                           # Data models
-│   └── Repository.kt                  # Repository data class
+├── 📊 model/
+│   └── Repository.kt
 │
-└── 💾 data/                            # Local persistence
-    └── UserPreferences.kt             # SharedPreferences wrapper
+└── 💾 data/
+    └── UserPreferences.kt
 ```
 
 ### Design Principles Applied
@@ -72,16 +55,25 @@ com.example.githubsearch/
 
 ---
 
-## 🔧 Technologies
+## 🌐 API
 
-| Technology      | Version | Description                              |
-|-----------------|---------|------------------------------------------|
-| **Kotlin**      | 1.9+    | Modern, concise Android language         |
-| **Retrofit**    | 2.9+    | Type-safe HTTP client for Android        |
-| **Gson**        | Latest  | JSON serialization/deserialization       |
-| **RecyclerView**| Latest  | Efficient scrollable list rendering      |
-| **SharedPrefs** | —       | Local persistence for username storage   |
-| **Android SDK** | 24+     | Compatible with 95%+ of devices          |
+Consumes the GitHub public REST API — no authentication required:
+```
+GET https://api.github.com/users/{username}/repos
+```
+
+---
+
+## 🔧 Tech Stack
+
+| Technology | Description |
+|---|---|
+| **Kotlin 1.9+** | Modern, concise Android language |
+| **Retrofit 2.9+** | Type-safe HTTP client |
+| **Gson** | JSON serialization |
+| **RecyclerView** | Efficient list rendering |
+| **SharedPreferences** | Lightweight local persistence |
+| **Android SDK 24+** | Compatible with 95%+ of devices |
 
 ---
 
@@ -92,50 +84,40 @@ com.example.githubsearch/
 - Android Studio Hedgehog (2023.1.1) or higher
 - JDK 17+
 - Android SDK 34
-- Physical device or emulator with API 24+
-- Active internet connection
+- Device or emulator with API 24+
 
 ### Steps
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/TallesGuerra/desafio-github-search.git
-   cd desafio-github-search
-   ```
-
-2. **Open in Android Studio**
-   - File → Open → Select the project folder
-
-3. **Sync dependencies**
-   - Gradle will sync automatically
-
-4. **Run the app**
-   - Click **Run** ▶️ or press `Shift + F10`
-   - Select a device or emulator
+1. Clone the repository
+```bash
+   git clone https://github.com/TallesGuerra/Github-search.git
+```
+2. Open in Android Studio → File → Open → Select the project folder
+3. Let Gradle sync automatically
+4. Click Run ▶️ or press `Shift + F10`
 
 ---
 
 ## 💡 Concepts Demonstrated
 
-- **REST API integration** with Retrofit and Gson
-- **Asynchronous network calls** with Coroutines / Callbacks
-- **RecyclerView** with custom adapter for list rendering
-- **SharedPreferences** for lightweight local data persistence
-- **Multi-screen navigation** between Activities
-- **Error handling** for network and API responses
-- Material Design components and theming
+- REST API integration with Retrofit and Gson
+- Asynchronous network calls with Coroutines
+- RecyclerView with custom adapter
+- SharedPreferences for local persistence
+- Multi-screen navigation between Activities
+- Error handling for network and API responses
 
 ---
 
 ## 🔄 Roadmap
 
 - [x] GitHub username input and persistence
-- [x] Fetch and display public repositories via API
+- [x] Fetch and display public repositories
 - [x] Reset saved username
-- [ ] Migrate to Jetpack Compose UI
-- [ ] Add repository detail screen
-- [ ] Implement search history with Room Database
-- [ ] Add ViewModel + StateFlow architecture
+- [ ] Migrate UI to Jetpack Compose
+- [ ] Add ViewModel + StateFlow
+- [ ] Repository detail screen
+- [ ] Search history with Room Database
 
 ---
 
