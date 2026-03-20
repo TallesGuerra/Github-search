@@ -11,7 +11,9 @@ Android app that fetches and displays public repositories from any GitHub user v
 
 ## 📸 Screenshot
 
-<!-- Adiciona aqui um screenshot do teu app -->
+<p align="center">
+  <img src="screenshot.svg" alt="GitHub Search App Screenshot" width="280"/>
+</p>
 
 ---
 
